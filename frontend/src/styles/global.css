@@ -1,0 +1,284 @@
+/* Global Styles - MNC Standard */
+
+/* CSS Variables */
+:root {
+    --primary-color: #667eea;
+    --primary-dark: #5a67d8;
+    --secondary-color: #764ba2;
+    --success-color: #48bb78;
+    --warning-color: #ed8936;
+    --danger-color: #f56565;
+    --info-color: #4299e1;
+    --light-color: #f7fafc;
+    --dark-color: #2d3748;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    --border-radius-lg: 16px;
+    
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    min-height: 100vh;
+    color: var(--gray-800);
+}
+
+code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--gray-300);
+    color: var(--gray-700);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    border: none;
+    transition: all var(--transition-normal);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Form Controls */
+.form-control, .form-select {
+    border: 2px solid var(--gray-200);
+    border-radius: var(--border-radius-sm);
+    padding: 0.625rem 0.875rem;
+    transition: all var(--transition-fast);
+    width: 100%;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.form-control.is-invalid {
+    border-color: var(--danger-color);
+}
+
+.invalid-feedback {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--gray-700);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+}
+
+/* Loading Spinner */
+.spinner-border {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: text-bottom;
+    border: 0.2em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .btn, .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid var(--gray-300);
+    }
+}

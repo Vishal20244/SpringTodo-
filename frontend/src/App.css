@@ -1,0 +1,85 @@
+/* App Specific Styles */
+
+.app {
+    min-height: 100vh;
+}
+
+/* Todo specific animations */
+.todo-enter {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.todo-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+}
+
+.todo-exit {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.todo-exit-active {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
+
+/* Stats card hover effects */
+.stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter button active state */
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+}
+
+.filter-btn:not(.active):hover {
+    background: var(--gray-100);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .stat-card .card-body {
+        padding: 0.75rem;
+    }
+    
+    .stat-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-group {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .card {
+        background: var(--gray-800);
+        color: var(--gray-100);
+    }
+    
+    .form-control,
+    .form-select {
+        background: var(--gray-700);
+        border-color: var(--gray-600);
+        color: var(--gray-100);
+    }
+    
+    .form-control:focus,
+    .form-select:focus {
+        background: var(--gray-700);
+    }
+}
