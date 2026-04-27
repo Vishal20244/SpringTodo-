@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Status</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #4CAF50;
+            color: white;
+            font-size: 50px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .url {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 18px;
+            color: #667eea;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .endpoints {
+            text-align: left;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .endpoints h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .endpoint {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .method {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .get { background: #4CAF50; color: white; }
+        .post { background: #2196F3; color: white; }
+        .put { background: #FF9800; color: white; }
+        .delete { background: #f44336; color: white; }
+        .patch { background: #9C27B0; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✅</div>
+        <h1>Backend is Running!</h1>
+        <div class="status">
+            🚀 Spring Boot Application is LIVE
+        </div>
+        <div class="url">
+            📍 http://localhost:8080
+        </div>
+
+        <div class="endpoints">
+            <h3>📋 Available API Endpoints:</h3>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <code>/api/todos</code> - Get all todos
+            </div>
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <code>/api/todos</code> - Create new todo
+            </div>
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <code>/api/todos/{id}</code> - Get single todo
+            </div>
+            <div class="endpoint">
+                <span class="method put">PUT</span>
+                <code>/api/todos/{id}</code> - Update todo
+            </div>
+            <div class="endpoint">
+                <span class="method delete">DELETE</span>
+                <code>/api/todos/{id}</code> - Delete todo
+            </div>
+            <div class="endpoint">
+                <span class="method patch">PATCH</span>
+                <code>/api/todos/{id}/toggle</code> - Toggle complete status
+            </div>
+        </div>
+
+        <button onclick="window.open('http://localhost:8080/api/todos', '_blank')">
+            Test API →
+        </button>
+    </div>
+</body>
+</html>
